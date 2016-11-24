@@ -39,6 +39,33 @@ In Linux you may have to run this script as root. This is due to permissions ass
 
 Unfortunately you'll have to do this every time the you unplug it. The other option is to change group permissions.
 
+## Windows installation
+
+Tested with Ruby 2.2.5 via [RubyInstaller](http://rubyinstaller.org/) on Windows 7.
+
+### libusb
+
+To install libusb:
+
+1. Open the `Start Command Prompt with Ruby` shortcut
+2. Run:
+
+        gem install libusb
+
+  _You may want to include `--source http://rubygems.org` if you see SSL certificate errors, but please be aware of the risk._
+
+### Device driver
+
+By default, Windows installs a driver for the Message Board that is **incompatible** with libusb (the error received is `LIBUSB::ERROR_INVALID_PARAM`). To work around this, use [Zadig](http://zadig.akeo.ie/) to replace the driver by:
+
+1. Opening Zadig
+2. In the `Options` menu check `List All Devices`
+3. Choose `USB LED Message Board` in the devices dropdown
+4. Choose `libusb-win32` in the drivers dropdown
+5. Click `Reinstall Driver`
+
+![zadig](https://cloud.githubusercontent.com/assets/544541/20583378/4b311d74-b1b7-11e6-9de5-4a354118ccd4.PNG)
+
 When
 ==========
 This has not been tested thoughly so if you have any issues let me know dcled_ruby@l.ew.is

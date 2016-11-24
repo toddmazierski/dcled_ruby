@@ -42,6 +42,12 @@ def initialise
   usb = LIBUSB::Context.new
   device = usb.devices(idVendor: 0x1d34, idProduct: 0x0013).first
   @led = device.open
+  detach_kernel_driver
+end
+
+def detach_kernel_driver
+  return if Gem.win_platform?
+
   @led.detach_kernel_driver(0) if @led.kernel_driver_active?(0)
 end
 
