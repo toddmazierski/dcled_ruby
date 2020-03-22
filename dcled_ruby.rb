@@ -89,10 +89,10 @@ def to_screen(row1_new, row2_new, row3_new, row4_new, row5_new, row6_new, row7_n
     (eval "@row#{num}").pop
   end
 
-  format_packet(0, @row1.slice(16, 8).join, @row1.slice(8, 8).join, @row1.slice(0, 8).join, @row2.slice(16, 8).join, @row2.slice(8, 8).join, @row2.slice(0, 8).join)
-  format_packet(2, @row3.slice(16, 8).join, @row3.slice(8, 8).join, @row3.slice(0, 8).join, @row4.slice(16, 8).join, @row4.slice(8, 8).join, @row4.slice(0, 8).join)
-  format_packet(4, @row5.slice(16, 8).join, @row5.slice(8, 8).join, @row5.slice(0, 8).join, @row6.slice(16, 8).join, @row6.slice(8, 8).join, @row6.slice(0, 8).join)
-  format_packet(6, @row7.slice(16, 8).join, @row7.slice(8, 8).join, @row7.slice(0, 8).join, @row8.slice(16, 8).join, @row8.slice(8, 8).join, @row8.slice(0, 8).join)
+  format_packet(0, @row7.slice(0, 8).join.reverse, @row7.slice(8, 8).join.reverse, @row7.slice(16, 8).join.reverse, @row6.slice(0, 8).join.reverse, @row6.slice(8, 8).join.reverse, @row6.slice(16, 8).join.reverse)
+  format_packet(2, @row5.slice(0, 8).join.reverse, @row5.slice(8, 8).join.reverse, @row5.slice(16, 8).join.reverse, @row4.slice(0, 8).join.reverse, @row4.slice(8, 8).join.reverse, @row4.slice(16, 8).join.reverse)
+  format_packet(4, @row3.slice(0, 8).join.reverse, @row3.slice(8, 8).join.reverse, @row3.slice(16, 8).join.reverse, @row2.slice(0, 8).join.reverse, @row2.slice(8, 8).join.reverse, @row2.slice(16, 8).join.reverse)
+  format_packet(6, @row1.slice(0, 8).join.reverse, @row1.slice(8, 8).join.reverse, @row1.slice(16, 8).join.reverse, @row8.slice(0, 8).join.reverse, @row8.slice(8, 8).join.reverse, @row8.slice(16, 8).join.reverse)
 
   sleep(SPEED)
 end
